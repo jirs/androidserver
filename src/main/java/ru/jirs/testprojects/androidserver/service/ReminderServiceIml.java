@@ -1,6 +1,7 @@
 package ru.jirs.testprojects.androidserver.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import ru.jirs.testprojects.androidserver.entity.Remind;
 import ru.jirs.testprojects.androidserver.repository.RemindRepository;
@@ -17,7 +18,7 @@ public class ReminderServiceIml implements ReminderService {
     private RemindRepository remindRepository;
 
     public List<Remind> getAll() {
-        return remindRepository.findAll();
+        return remindRepository.findAll(sortByIdAsc());
     }
 
     public Remind getById(long id) {
@@ -30,5 +31,9 @@ public class ReminderServiceIml implements ReminderService {
 
     public void remove(long id) {
         remindRepository.delete(id);
+    }
+
+    private Sort sortByIdAsc() {
+        return new Sort(Sort.Direction.ASC, "id");
     }
 }

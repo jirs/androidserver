@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+    <definition name="reminders" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/view/templates/default/views/reminders.jsp" />
+    </definition>
+
+    <definition name="reminder" extends="DefaultTemplate">
+        <put-attribute name="title" value="Просмотр напоминания" />
+        <put-attribute name="body" value="/WEB-INF/view/templates/default/views/reminder.jsp" />
+    </definition>
+
+    <definition name="reminder_edit" extends="DefaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/view/templates/default/views/reminder_edit.jsp" />
+    </definition>
+
+
+</tiles-definitions>

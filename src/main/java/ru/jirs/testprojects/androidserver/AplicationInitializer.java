@@ -4,6 +4,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
+import ru.jirs.testprojects.androidserver.config.DispatcherConfig;
 import ru.jirs.testprojects.androidserver.config.WebConfig;
 
 import javax.servlet.ServletContext;
@@ -23,7 +24,11 @@ public class AplicationInitializer implements WebApplicationInitializer{
         ctx.register(WebConfig.class);
         servletContext.addListener(new ContextLoaderListener(ctx));
 
-        ServletRegistration.Dynamic servlet = servletContext.addServlet(DISPATCHER, new DispatcherServlet(ctx));
+        // Create the dispatcher servlet's Spring application context
+        AnnotationConfigWebApplicationContext dispatcherContext = new AnnotationConfigWebApplicationContext();
+        dispatcherContext.register(DispatcherConfig.class);
+
+        ServletRegistration.Dynamic servlet = servletContext.addServlet(DISPATCHER, new DispatcherServlet(dispatcherContext));
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
     }
