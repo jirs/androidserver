@@ -18,5 +18,15 @@
         <put-attribute name="body" value="/WEB-INF/view/templates/default/views/reminder_edit.jsp" />
     </definition>
 
+    <definition name="login" extends="DefaultTemplate">
+        <put-attribute name="title" value="Авторизация на сайте" />
+        <put-attribute name="body" value="/WEB-INF/view/templates/default/views/login.jsp" />
+    </definition>
+
+    <definition name="testMail" extends="DefaultTemplate">
+        <put-attribute name="title" value="Тестовая отправка письма" />
+        <put-attribute name="body" value="/WEB-INF/view/templates/default/views/testMail.jsp" />
+    </definition>
+
 
 </tiles-definitions>
